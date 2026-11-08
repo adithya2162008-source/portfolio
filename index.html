@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adithya Hari Bhat | AI Engineer · Full-Stack & Systems Architecture</title>
+  <meta name="description"
+    content="Cinematic engineering portfolio of Adithya Hari Bhat. Architecting high-throughput distributed backends, LLM inference pipelines, and mobile applications.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Adithya Hari Bhat | AI Engineer · Full-Stack & Systems Architecture">
+  <meta property="og:description"
+    content="Cinematic portfolio of Adithya Hari Bhat. Architecting high-throughput backend infrastructure, machine intelligence pipelines, and mobile applications.">
+  <meta property="og:image" content="./adithya-cinematic.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Space Grotesk (Headings), Inter (Body & Nav), JetBrains Mono (Tech Labels & Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            dark: '#050505',
+            surface: '#0c0c0c',
+            emerald: {
+              accent: '#f97316',
+              forest: '#ea580c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #050505;
+      --accent-emerald: #f97316;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-heading {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    ::selection {
+      background-color: #f97316;
+      color: #050505;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #050505;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1f1f1f;
+      border-radius: 2px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #333333;
+    }
+
+    :focus-visible {
+      outline: 2px solid #f97316;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body class="bg-[#050505] text-white selection:bg-[#f97316] selection:text-black min-h-screen relative font-sans">
+
+  <!-- 1. FIXED FULLSCREEN CINEMATIC PHOTO BACKGROUND -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#050505]" style="perspective: 1200px;">
+    <!-- Ambient Radial Glow behind portrait -->
+    <div class="absolute inset-0 opacity-55"
+      style="background: radial-gradient(circle at 50% 35%, rgba(249, 115, 22, 0.25) 0%, rgba(5, 5, 5, 0.7) 60%, #050505 100%);">
+    </div>
+
+    <!-- Fullscreen Edge-to-Edge Cinematic Background Photo (oversized for smooth head-to-shoulder scroll pan & 3D mouse parallax) -->
+    <div id="bg-photo-wrapper" class="absolute -top-[8vh] -left-[3vw] w-[106vw] h-[140vh] will-change-transform"
+      style="transform-origin: center center;">
+      <div id="bg-photo-inner" class="relative w-full h-full opacity-90 transition-opacity duration-500">
+        <img src="./adithya-cinematic.jpg" onerror="this.src='./public/adithya-cinematic.jpg'" alt="Adithya Hari Bhat"
+          class="w-full h-full object-cover select-none" style="object-position: center 20%;" />
+      </div>
+    </div>
+
+    <!-- Vignettes & Overlays -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none">
+    </div>
+    <div class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(circle at 50% 40%, transparent 45%, rgba(5,5,5,0.7) 100%);"></div>
+    <div id="deep-scroll-overlay"
+      class="absolute inset-0 bg-[#050505]/65 pointer-events-none transition-opacity duration-500 opacity-0"></div>
+  </div>
+
+  <!-- 2. FLOATING MINIMAL NAVIGATION -->
+  <nav id="floating-nav"
+    class="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[92%] max-w-4xl opacity-80 -translate-y-1 sm:opacity-90">
+    <div
+      class="flex items-center justify-between px-5 py-3 rounded-full bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+
+      <a href="#hero"
+        class="font-display text-sm font-bold tracking-tight text-white hover:text-[#f97316] transition-colors flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#f97316] animate-pulse"></span>
+        <span>AHB</span>
+      </a>
+
+      <div class="hidden md:flex items-center space-x-7 text-xs font-medium text-[#8c8c8c]">
+        <a href="#hero" class="hover:text-white transition-colors py-1">Home</a>
+        <a href="#about" class="hover:text-white transition-colors py-1">About</a>
+        <a href="#projects" class="hover:text-white transition-colors py-1">Projects</a>
+        <a href="#skills" class="hover:text-white transition-colors py-1">Skills</a>
+        <a href="#experience" class="hover:text-white transition-colors py-1">Experience</a>
+        <a href="#contact" class="hover:text-white transition-colors py-1">Contact</a>
+      </div>
+
+      <div class="flex items-center space-x-3 text-xs text-[#8c8c8c]">
+        <a href="https://github.com/adithya2162008-source" target="_blank" rel="noopener noreferrer"
+          class="hover:text-white transition-colors p-1" title="GitHub" aria-label="GitHub Profile">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/adithya-bhat-220465389" target="_blank" rel="noopener noreferrer"
+          class="hover:text-white transition-colors p-1" title="LinkedIn" aria-label="LinkedIn Profile">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+        </a>
+        <a href="mailto:adithya2162008@gmail.com" class="hover:text-white transition-colors p-1" title="Email"
+          aria-label="Send Email">
+          <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </a>
+        <button id="mobile-toggle" class="md:hidden p-1 text-white hover:text-[#f97316] transition-colors"
+          aria-label="Toggle navigation menu">
+          <svg id="menu-icon" class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+          <svg id="close-icon" class="w-4 h-4 stroke-current fill-none stroke-2 hidden" viewBox="0 0 24 24">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden mt-2 p-5 rounded-2xl bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/[0.1] shadow-2xl flex flex-col space-y-4 text-sm font-medium">
+      <a href="#hero" class="mobile-link text-[#8c8c8c] hover:text-white py-1 transition-colors">Home</a>
+      <a href="#about" class="mobile-link text-[#8c8c8c] hover:text-white py-1 transition-colors">About</a>
+      <a href="#projects" class="mobile-link text-[#8c8c8c] hover:text-white py-1 transition-colors">Projects</a>
+      <a href="#skills" class="mobile-link text-[#8c8c8c] hover:text-white py-1 transition-colors">Skills</a>
+      <a href="#experience" class="mobile-link text-[#8c8c8c] hover:text-white py-1 transition-colors">Experience</a>
+      <a href="#contact" class="mobile-link text-[#8c8c8c] hover:text-white py-1 transition-colors">Contact</a>
+    </div>
+  </nav>
+
+  <!-- 3. MAIN CINEMATIC FLOW -->
+  <main class="relative z-10">
+
+    <!-- HERO & CINEMATIC PHOTO REVEAL -->
+    <section id="hero" class="relative min-h-[220vh] text-white">
+
+      <!-- Stage 1: Initial Minimal Opening Screen (Pinned) -->
+      <div id="welcome-stage"
+        class="fixed inset-0 h-screen flex flex-col justify-between items-center px-6 py-12 pointer-events-none z-10 transition-transform duration-75">
+        <div class="pt-20">
+          <span
+            class="font-mono text-xs uppercase tracking-[0.25em] text-[#8c8c8c] bg-white/[0.03] px-4 py-1.5 rounded-full border border-white/[0.08] backdrop-blur-md">
+            PORTFOLIO 2026
+          </span>
+        </div>
+
+        <div class="text-center space-y-4 max-w-3xl">
+          <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-none">
+            WELCOME TO <br />
+            <span class="text-[#f97316]">MY WORLD</span>
+          </h1>
+          <p class="text-xs sm:text-sm font-mono tracking-widest text-[#8c8c8c] uppercase">
+            A CINEMATIC JOURNEY THROUGH CODE, SYSTEMS & INTELLIGENCE
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center space-y-2 pb-6">
+          <span class="font-mono text-xs tracking-widest text-[#8c8c8c] uppercase">
+            Scroll to reveal
+          </span>
+          <svg class="w-4 h-4 text-[#f97316] animate-pulse stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Stage 2: Main Personal Reveal Section -->
+      <div class="pt-[100vh] min-h-screen flex items-center justify-center px-6 sm:px-12 relative z-20">
+        <div id="intro-stage"
+          class="max-w-5xl mx-auto text-center space-y-6 transition-all duration-300 opacity-0 translate-y-10">
+          <div class="font-mono text-xs sm:text-sm tracking-[0.35em] text-[#f97316] uppercase font-semibold">
+            HEY, I&apos;M
+          </div>
+          <!-- Oversized Bold Space Grotesk with tight letter spacing -->
+          <h2
+            class="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-none uppercase">
+            ADITHYA HARI BHAT
+          </h2>
+          <div class="space-y-3 pt-2">
+            <p class="font-display text-xl sm:text-2xl md:text-3xl font-medium text-[#e5e5e5] tracking-tight">
+              Developer <span class="text-[#f97316] font-mono">|</span> Innovator <span
+                class="text-[#f97316] font-mono">|</span> Technology Enthusiast
+            </p>
+            <p class="text-xs sm:text-sm font-mono text-[#8c8c8c] tracking-widest uppercase">
+              AI Engineer · High-Throughput Backend Architecture · Mobile Applications
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-32 px-6 sm:px-12 relative z-20">
+      <div class="max-w-6xl mx-auto space-y-20">
+        <div class="space-y-4">
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#f97316]">
+            01 // ABOUT ME
+          </span>
+          <h2
+            class="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white uppercase leading-tight">
+            CRAFTING RESILIENT SYSTEMS <br />
+            <span class="text-[#8c8c8c]">AT THE INTERSECTION OF CODE & INTELLIGENCE.</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-7 space-y-6 text-[#d4d4d4] text-base sm:text-lg leading-relaxed font-normal">
+            <p>
+              I am an engineer driven by technical precision, architectural depth, and zero-fluff software.
+              My journey began with deep curiosity about how low-level systems handle concurrency,
+              evolving into architecting scalable distributed backends and autonomous AI execution engines.
+            </p>
+            <p>
+              Whether engineering self-healing event loops in open-source projects like <strong
+                class="text-white font-medium">HackLoop</strong>,
+              optimizing token economics for LLM context routing, or crafting silky 60fps mobile interfaces,
+              my focus remains on building deterministic, high-throughput software that solves real operational
+              bottlenecks.
+            </p>
+            <p class="text-[#8c8c8c] text-sm sm:text-base">
+              Beyond pure implementation, my ambition is to lead the next generation of verifiable machine intelligence
+              and distributed architectures—building platforms that scale effortlessly under heavy load while offering
+              uncompromising developer ergonomics.
+            </p>
+          </div>
+
+          <div class="lg:col-span-5 space-y-6 text-xs">
+            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-md space-y-2.5">
+              <div class="flex items-center space-x-3 text-[#f97316]">
+                <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                  <rect width="16" height="16" x="4" y="4" rx="2" />
+                  <rect width="6" height="6" x="9" y="9" rx="1" />
+                  <path d="M15 2v2" />
+                  <path d="M15 20v2" />
+                  <path d="M2 15h2" />
+                  <path d="M2 9h2" />
+                  <path d="M20 15h2" />
+                  <path d="M20 9h2" />
+                  <path d="M9 2v2" />
+                  <path d="M9 20v2" />
+                </svg>
+                <span class="font-display font-bold tracking-wider uppercase text-white text-sm">Technical
+                  Interests</span>
+              </div>
+              <p class="text-[#8c8c8c] leading-relaxed text-xs">
+                Autonomous agent loops, token context compression, distributed message brokers,
+                database indexing, and hardware-accelerated mobile rendering.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-md space-y-2.5">
+              <div class="flex items-center space-x-3 text-[#f97316]">
+                <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+                <span class="font-display font-bold tracking-wider uppercase text-white text-sm">Engineering
+                  Background</span>
+              </div>
+              <p class="text-[#8c8c8c] leading-relaxed text-xs">
+                Deep experience in backend systems (Python, Rust, FastAPI, Tokio),
+                modern web platforms (Next.js, TypeScript), and cross-platform mobile ecosystems (React Native,
+                Flutter).
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-md space-y-2.5">
+              <div class="flex items-center space-x-3 text-[#f97316]">
+                <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+                <span class="font-display font-bold tracking-wider uppercase text-white text-sm">Goals &
+                  Ambitions</span>
+              </div>
+              <p class="text-[#8c8c8c] leading-relaxed text-xs">
+                To build high-conviction foundational software, open-source developer tooling,
+                and high-scale AI systems that advance how machines and humans collaborate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-32 px-6 sm:px-12 relative z-20">
+      <div class="max-w-6xl mx-auto space-y-20">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/[0.08]">
+          <div class="space-y-4">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#f97316]">
+              02 // SELECTED WORK
+            </span>
+            <h2 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white uppercase">
+              FEATURED PROJECTS & <br />
+              <span class="text-[#8c8c8c]">SYSTEMS ARCHITECTURE</span>
+            </h2>
+          </div>
+          <p class="text-xs sm:text-sm font-mono text-[#8c8c8c] max-w-sm">
+            Production-grade systems, open-source repositories, and autonomous machine intelligence.
+          </p>
+        </div>
+
+        <div class="space-y-24">
+
+          <!-- Project 01: HackLoop -->
+          <div
+            class="group rounded-3xl bg-[#0a0a0a]/70 border border-white/[0.08] p-8 sm:p-12 backdrop-blur-xl transition-all duration-500 hover:border-white/[0.2]">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-6 space-y-6">
+                <div class="flex items-center space-x-3 text-xs font-mono text-[#8c8c8c]">
+                  <span class="text-[#f97316] font-bold">01</span>
+                  <span>/</span>
+                  <span class="tracking-wider">FLAGSHIP OPEN SOURCE // RUNTIME ARCHITECTURE</span>
+                </div>
+                <h3
+                  class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-snug">
+                  HackLoop — Autonomous Task Engine
+                </h3>
+                <p class="text-sm sm:text-base text-[#a3a3a3] leading-relaxed font-light">
+                  An autonomous task dispatcher and continuous feedback execution engine designed for real-time task
+                  orchestration, verifiable code evaluation, and automated continuous feedback loops with
+                  sub-millisecond tick latency.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Python</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">AsyncIO</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Tokio
+                    / Rust</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">eBPF
+                    Sandboxing</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">WebSocket
+                    Bus</span>
+                </div>
+                <div class="flex items-center space-x-4 pt-4 text-xs font-mono">
+                  <a href="https://github.com/adithya2162008-source/hackloop" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-[#f97316] hover:text-white transition-all duration-300">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    <span>Repository</span>
+                    <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                  <a href="https://github.com/adithya2162008-source/hackloop" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-all duration-300">
+                    <span>Explore Core</span>
+                    <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2 text-[#8c8c8c]" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-6">
+                <div
+                  class="rounded-2xl bg-[#050505] border border-white/[0.1] p-6 font-mono text-xs shadow-2xl relative overflow-hidden group-hover:border-[#f97316]/40 transition-colors duration-500">
+                  <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] text-[#8c8c8c]">
+                    <div class="flex items-center space-x-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+                      <span class="ml-2 text-xs text-[#8c8c8c]">hackloop.spec</span>
+                    </div>
+                    <span class="text-xs text-[#f97316]">SYSTEM: VERIFIED</span>
+                  </div>
+                  <pre class="pt-4 text-[#e5e5e5] leading-relaxed overflow-x-auto"><code>// HackLoop Runtime Core
+pub struct ExecutionLoop {
+    worker_pool: WorkerBus&lt;Task&gt;,
+    telemetry_stream: RingBuffer&lt;TraceEvent&gt;,
+}
+impl ExecutionLoop {
+    pub async fn dispatch_cycle(&amp;self, task: Task) -&gt; Result&lt;ExecutionTrace&gt; {
+        self.worker_pool.dispatch_isolated(task).await
+    }
+}</code></pre>
+                  <div
+                    class="pt-6 mt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#8c8c8c]">
+                    <span>Open Source Architecture</span>
+                    <span class="text-[#f97316]">Apache-2.0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 02: Neural Context Router -->
+          <div
+            class="group rounded-3xl bg-[#0a0a0a]/70 border border-white/[0.08] p-8 sm:p-12 backdrop-blur-xl transition-all duration-500 hover:border-white/[0.2]">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-6 space-y-6">
+                <div class="flex items-center space-x-3 text-xs font-mono text-[#8c8c8c]">
+                  <span class="text-[#38bdf8] font-bold">02</span>
+                  <span>/</span>
+                  <span class="tracking-wider">AI INFRASTRUCTURE // LLM ORCHESTRATION</span>
+                </div>
+                <h3
+                  class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-snug">
+                  Neural Context Router & Semantic Gateway
+                </h3>
+                <p class="text-sm sm:text-base text-[#a3a3a3] leading-relaxed font-light">
+                  High-performance semantic gateway that dynamically prunes prompt payloads, compresses multi-turn
+                  conversational context by 42%, and routes inference requests across local and hosted model endpoints.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">PyTorch</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">FastAPI</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Gemini
+                    API</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Qdrant
+                    Vector DB</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Semantic
+                    Cache</span>
+                </div>
+                <div class="flex items-center space-x-4 pt-4 text-xs font-mono">
+                  <a href="https://github.com/adithya2162008-source" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-[#38bdf8] hover:text-white transition-all duration-300">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    <span>Repository</span>
+                    <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                  <a href="https://github.com/adithya2162008-source" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-all duration-300">
+                    <span>Explore Core</span>
+                    <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2 text-[#8c8c8c]" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-6">
+                <div
+                  class="rounded-2xl bg-[#050505] border border-white/[0.1] p-6 font-mono text-xs shadow-2xl relative overflow-hidden group-hover:border-[#38bdf8]/40 transition-colors duration-500">
+                  <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] text-[#8c8c8c]">
+                    <div class="flex items-center space-x-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+                      <span class="ml-2 text-xs text-[#8c8c8c]">context_router.spec</span>
+                    </div>
+                    <span class="text-xs text-[#38bdf8]">INTENT: ACCURATE</span>
+                  </div>
+                  <pre class="pt-4 text-[#e5e5e5] leading-relaxed overflow-x-auto"><code>class ContextPruningRouter:
+    async def route_query(self, query: str, history: list[Message]) -&gt; ModelResponse:
+        distilled = await self.compressor.prune_redundant_tokens(history)
+        return await self.gateway.dispatch_with_fallback(distilled)</code></pre>
+                  <div
+                    class="pt-6 mt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#8c8c8c]">
+                    <span>Semantic Vector Compression</span>
+                    <span class="text-[#38bdf8]">P95 &lt; 380ms</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 03: Mobile Edge Sync Core -->
+          <div
+            class="group rounded-3xl bg-[#0a0a0a]/70 border border-white/[0.08] p-8 sm:p-12 backdrop-blur-xl transition-all duration-500 hover:border-white/[0.2]">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-6 space-y-6">
+                <div class="flex items-center space-x-3 text-xs font-mono text-[#8c8c8c]">
+                  <span class="text-[#fb923c] font-bold">03</span>
+                  <span>/</span>
+                  <span class="tracking-wider">MOBILE PLATFORMS // OFFLINE-FIRST ARCHITECTURE</span>
+                </div>
+                <h3
+                  class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-snug">
+                  Mobile Edge Sync Core
+                </h3>
+                <p class="text-sm sm:text-base text-[#a3a3a3] leading-relaxed font-light">
+                  Cross-platform mobile engine featuring deterministic local conflict resolution, background peer
+                  synchronization, and zero-jank 120fps hardware-accelerated animations for iOS and Android.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">React
+                    Native</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Flutter</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">SQLite</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Zustand</span>
+                  <span
+                    class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Native
+                    C++ Bridge</span>
+                </div>
+                <div class="flex items-center space-x-4 pt-4 text-xs font-mono">
+                  <a href="https://github.com/adithya2162008-source" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-[#fb923c] hover:text-white transition-all duration-300">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    <span>Repository</span>
+                    <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                  <a href="https://github.com/adithya2162008-source" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-all duration-300">
+                    <span>Explore Core</span>
+                    <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2 text-[#8c8c8c]" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-6">
+                <div
+                  class="rounded-2xl bg-[#050505] border border-white/[0.1] p-6 font-mono text-xs shadow-2xl relative overflow-hidden group-hover:border-[#fb923c]/40 transition-colors duration-500">
+                  <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] text-[#8c8c8c]">
+                    <div class="flex items-center space-x-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+                      <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+                      <span class="ml-2 text-xs text-[#8c8c8c]">mobile_sync.spec</span>
+                    </div>
+                    <span class="text-xs text-[#fb923c]">UI: 120 FPS</span>
+                  </div>
+                  <pre class="pt-4 text-[#e5e5e5] leading-relaxed overflow-x-auto"><code>// Local Offline-First Reconciler
+export const syncEngine = {
+  async commitTransaction(tx: MutationPayload) {
+    await localDB.persist(tx);
+    backgroundSyncQueue.enqueue(tx);
+  }
+};</code></pre>
+                  <div
+                    class="pt-6 mt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#8c8c8c]">
+                    <span>Offline Conflict Free</span>
+                    <span class="text-[#fb923c]">SQLite + C++</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-32 px-6 sm:px-12 relative z-20">
+      <div class="max-w-6xl mx-auto space-y-16">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/[0.08]">
+          <div class="space-y-4">
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#f97316]">
+              03 // TECHNICAL ARSENAL
+            </span>
+            <h2 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white uppercase">
+              SKILLS & DISCIPLINES
+            </h2>
+          </div>
+
+          <div class="flex flex-wrap gap-2 text-xs font-mono" id="skill-filter-buttons">
+            <button data-cat="all"
+              class="skill-tab px-3 py-1.5 rounded-full bg-[#f97316] text-black font-semibold transition-all duration-300">ALL</button>
+            <button data-cat="languages"
+              class="skill-tab px-3 py-1.5 rounded-full bg-white/[0.03] text-[#8c8c8c] hover:text-white border border-white/[0.08] transition-all duration-300">LANGUAGES</button>
+            <button data-cat="ai"
+              class="skill-tab px-3 py-1.5 rounded-full bg-white/[0.03] text-[#8c8c8c] hover:text-white border border-white/[0.08] transition-all duration-300">AI
+              & ML</button>
+            <button data-cat="backend"
+              class="skill-tab px-3 py-1.5 rounded-full bg-white/[0.03] text-[#8c8c8c] hover:text-white border border-white/[0.08] transition-all duration-300">BACKEND</button>
+            <button data-cat="frontend"
+              class="skill-tab px-3 py-1.5 rounded-full bg-white/[0.03] text-[#8c8c8c] hover:text-white border border-white/[0.08] transition-all duration-300">FRONTEND
+              & MOBILE</button>
+            <button data-cat="tools"
+              class="skill-tab px-3 py-1.5 rounded-full bg-white/[0.03] text-[#8c8c8c] hover:text-white border border-white/[0.08] transition-all duration-300">TOOLS</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="skill-groups-container">
+
+          <div
+            class="skill-card p-8 rounded-3xl bg-[#0a0a0a]/60 border border-white/[0.08] backdrop-blur-xl space-y-6 hover:border-white/[0.2] transition-all duration-300"
+            data-cat="languages">
+            <div class="flex items-center space-x-3 text-[#f97316]">
+              <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              <h3 class="font-display text-lg font-bold text-white tracking-tight">Programming Languages</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Python</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Rust</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">TypeScript</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">JavaScript</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Go</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">C++</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">SQL</span>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-8 rounded-3xl bg-[#0a0a0a]/60 border border-white/[0.08] backdrop-blur-xl space-y-6 hover:border-white/[0.2] transition-all duration-300"
+            data-cat="ai">
+            <div class="flex items-center space-x-3 text-[#f97316]">
+              <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                <rect width="16" height="16" x="4" y="4" rx="2" />
+                <rect width="6" height="6" x="9" y="9" rx="1" />
+                <path d="M15 2v2" />
+                <path d="M15 20v2" />
+                <path d="M2 15h2" />
+                <path d="M2 9h2" />
+                <path d="M20 15h2" />
+                <path d="M20 9h2" />
+                <path d="M9 2v2" />
+                <path d="M9 20v2" />
+              </svg>
+              <h3 class="font-display text-lg font-bold text-white tracking-tight">Artificial Intelligence & ML</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Multi-Agent
+                Orchestration</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">RAG
+                & Vector Embeddings</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Context
+                Window Pruning</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Local
+                LLM Quantization</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">PyTorch</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Gemini
+                API</span>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-8 rounded-3xl bg-[#0a0a0a]/60 border border-white/[0.08] backdrop-blur-xl space-y-6 hover:border-white/[0.2] transition-all duration-300"
+            data-cat="backend">
+            <div class="flex items-center space-x-3 text-[#f97316]">
+              <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+                <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+                <line x1="6" x2="6.01" y1="6" y2="6" />
+                <line x1="6" x2="6.01" y1="18" y2="18" />
+              </svg>
+              <h3 class="font-display text-lg font-bold text-white tracking-tight">Backend & Systems</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">FastAPI</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Tokio
+                / Async Runtimes</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">PostgreSQL</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Redis</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">gRPC
+                & Protobuf</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Distributed
+                Event Buses</span>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-8 rounded-3xl bg-[#0a0a0a]/60 border border-white/[0.08] backdrop-blur-xl space-y-6 hover:border-white/[0.2] transition-all duration-300"
+            data-cat="frontend">
+            <div class="flex items-center space-x-3 text-[#f97316]">
+              <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                <line x1="12" x2="12.01" y1="18" y2="18" />
+              </svg>
+              <h3 class="font-display text-lg font-bold text-white tracking-tight">Frontend & Mobile</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Next.js
+                15</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">React</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Tailwind
+                CSS</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">React
+                Native</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Flutter</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Offline-First
+                SQLite</span>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-8 rounded-3xl bg-[#0a0a0a]/60 border border-white/[0.08] backdrop-blur-xl space-y-6 hover:border-white/[0.2] transition-all duration-300"
+            data-cat="tools">
+            <div class="flex items-center space-x-3 text-[#f97316]">
+              <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+              <h3 class="font-display text-lg font-bold text-white tracking-tight">Tools & Infrastructure</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Docker
+                & Containers</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Linux
+                Kernel & eBPF</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Git
+                & CI/CD</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Cloudflare
+                Workers</span>
+              <span
+                class="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">Vercel</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="py-32 px-6 sm:px-12 relative z-20">
+      <div class="max-w-6xl mx-auto space-y-16">
+
+        <div class="space-y-4 pb-6 border-b border-white/[0.08]">
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-[#f97316]">
+            04 // MILESTONES & EXPERIENCE
+          </span>
+          <h2 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white uppercase">
+            ENGINEERING TRACK RECORD
+          </h2>
+        </div>
+
+        <div class="space-y-12">
+
+          <div
+            class="p-8 sm:p-10 rounded-3xl bg-[#0a0a0a]/60 border border-white/[0.08] backdrop-blur-xl transition-all duration-300 hover:border-white/[0.2] space-y-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono text-[#8c8c8c]">
+              <div class="flex items-center space-x-2 text-[#f97316]">
+                <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                  <line x1="16" x2="16" y1="2" y2="6" />
+                  <line x1="8" x2="8" y1="2" y2="6" />
+                  <line x1="3" x2="21" y1="10" y2="10" />
+                </svg>
+                <span class="font-bold tracking-wider">2024 — PRESENT</span>
+              </div>
+              <div class="flex items-center space-x-2 text-[#8c8c8c]">
+                <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Remote</span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Lead Systems Architect & Open Source Maintainer
+              </h3>
+              <p class="text-sm font-mono text-[#f97316]">HackLoop Core Engine</p>
+            </div>
+            <p class="text-sm sm:text-base text-[#a3a3a3] leading-relaxed font-light">
+              Architecting autonomous execution loops, sub-millisecond task dispatchers, and verifiable feedback buses
+              for intelligent systems. Managing open-source repository releases, performance benchmarking, and community
+              contributions.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span
+                class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">✓
+                Sub-millisecond tick latency</span>
+              <span
+                class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">✓
+                Zero memory leak design</span>
+              <span
+                class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">✓
+                Multi-model fallback bridge</span>
+            </div>
+          </div>
+
+          <div
+            class="p-8 sm:p-10 rounded-3xl bg-[#0a0a0a]/60 border border-white/[0.08] backdrop-blur-xl transition-all duration-300 hover:border-white/[0.2] space-y-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono text-[#8c8c8c]">
+              <div class="flex items-center space-x-2 text-[#f97316]">
+                <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                  <line x1="16" x2="16" y1="2" y2="6" />
+                  <line x1="8" x2="8" y1="2" y2="6" />
+                  <line x1="3" x2="21" y1="10" y2="10" />
+                </svg>
+                <span class="font-bold tracking-wider">2023 — 2024</span>
+              </div>
+              <div class="flex items-center space-x-2 text-[#8c8c8c]">
+                <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Bengaluru, India</span>
+              </div>
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                AI Systems & Full-Stack Engineer
+              </h3>
+              <p class="text-sm font-mono text-[#f97316]">Autonomous Projects & Research</p>
+            </div>
+            <p class="text-sm sm:text-base text-[#a3a3a3] leading-relaxed font-light">
+              Engineered multi-agent orchestration frameworks, semantic RAG vector retrieval pipelines, and
+              high-concurrency FastAPI microservices. Optimized inference token consumption by 42% through intelligent
+              context distillation.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span
+                class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">✓
+                Semantic cache clustering</span>
+              <span
+                class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">✓
+                gRPC distributed pipelines</span>
+              <span
+                class="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.03] text-[#d4d4d4] border border-white/[0.08]">✓
+                High-throughput PostgreSQL</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 4. CINEMATIC CLOSING CONTACT -->
+  <footer id="contact"
+    class="py-32 px-6 sm:px-12 relative z-20 border-t border-white/[0.08] bg-[#050505]/90 backdrop-blur-2xl">
+    <div class="max-w-6xl mx-auto space-y-20">
+
+      <div class="space-y-6 text-center max-w-4xl mx-auto">
+        <span class="font-mono text-xs uppercase tracking-[0.35em] text-[#f97316]">
+          05 // GET IN TOUCH
+        </span>
+        <h2
+          class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white uppercase leading-none">
+          LET&apos;S BUILD <br />
+          <span class="text-[#f97316]">SOMETHING AMAZING.</span>
+        </h2>
+        <p class="text-sm sm:text-base text-[#8c8c8c] max-w-xl mx-auto font-light leading-relaxed">
+          Available for ambitious engineering roles, high-throughput AI architecture,
+          and foundational systems collaboration.
+        </p>
+
+        <div class="pt-6 flex flex-wrap items-center justify-center gap-4">
+          <a href="mailto:adithya2162008@gmail.com"
+            class="px-8 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-[#f97316] hover:text-white transition-all duration-300 font-mono tracking-wider flex items-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+            <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span>START A CONVERSATION</span>
+            <svg class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </a>
+
+          <button id="copy-email-btn"
+            class="px-6 py-4 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-all duration-300 font-mono text-xs flex items-center gap-2"
+            aria-label="Copy email address to clipboard">
+            <svg id="copy-icon" class="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+            </svg>
+            <svg id="check-icon" class="w-4 h-4 stroke-current fill-none stroke-2 text-[#f97316] hidden"
+              viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span id="copy-text">COPY EMAIL</span>
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="pt-16 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
+
+        <a href="https://github.com/adithya2162008-source" target="_blank" rel="noopener noreferrer"
+          class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#f97316]/50 transition-all duration-300 group space-y-2">
+          <div class="flex items-center justify-between text-[#8c8c8c] group-hover:text-white">
+            <svg class="w-5 h-5 fill-current text-[#f97316]" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <svg class="w-4 h-4 stroke-current fill-none stroke-2 opacity-50 group-hover:opacity-100"
+              viewBox="0 0 24 24">
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </div>
+          <div class="text-white font-bold text-sm">GitHub</div>
+          <div class="text-[#8c8c8c] truncate">adithya2162008-source</div>
+        </a>
+
+        <a href="https://github.com/adithya2162008-source/hackloop" target="_blank" rel="noopener noreferrer"
+          class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#f97316]/50 transition-all duration-300 group space-y-2">
+          <div class="flex items-center justify-between text-[#8c8c8c] group-hover:text-white">
+            <span class="text-[#f97316] font-bold text-base">⚡</span>
+            <svg class="w-4 h-4 stroke-current fill-none stroke-2 opacity-50 group-hover:opacity-100"
+              viewBox="0 0 24 24">
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </div>
+          <div class="text-white font-bold text-sm">hackloop Core</div>
+          <div class="text-[#8c8c8c] truncate">Open Source Engine</div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/adithya-bhat-220465389" target="_blank" rel="noopener noreferrer"
+          class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#f97316]/50 transition-all duration-300 group space-y-2">
+          <div class="flex items-center justify-between text-[#8c8c8c] group-hover:text-white">
+            <svg class="w-5 h-5 fill-current text-[#f97316]" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+            <svg class="w-4 h-4 stroke-current fill-none stroke-2 opacity-50 group-hover:opacity-100"
+              viewBox="0 0 24 24">
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </div>
+          <div class="text-white font-bold text-sm">LinkedIn</div>
+          <div class="text-[#8c8c8c] truncate">adithya-bhat-220465389</div>
+        </a>
+
+        <a href="https://instagram.com/ad.ithya3073" target="_blank" rel="noopener noreferrer"
+          class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#f97316]/50 transition-all duration-300 group space-y-2">
+          <div class="flex items-center justify-between text-[#8c8c8c] group-hover:text-white">
+            <svg class="w-5 h-5 stroke-current fill-none stroke-2 text-[#f97316]" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+            <svg class="w-4 h-4 stroke-current fill-none stroke-2 opacity-50 group-hover:opacity-100"
+              viewBox="0 0 24 24">
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </div>
+          <div class="text-white font-bold text-sm">Instagram</div>
+          <div class="text-[#8c8c8c] truncate">@ad.ithya3073</div>
+        </a>
+
+      </div>
+
+      <div
+        class="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#8c8c8c]">
+        <div>© 2026 Adithya Hari Bhat. All systems operational.</div>
+        <div class="flex items-center space-x-4">
+          <span class="text-[#f97316] flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#f97316] animate-ping"></span>
+            SYSTEMS ACTIVE
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR CINEMATIC SCROLL, REVEALS & INTERACTIONS -->
+  <script>
+      (function () {
+        const bgPhotoWrapper = document.getElementById('bg-photo-wrapper');
+        const bgPhotoInner = document.getElementById('bg-photo-inner');
+        const deepScrollOverlay = document.getElementById('deep-scroll-overlay');
+        const welcomeStage = document.getElementById('welcome-stage');
+        const introStage = document.getElementById('intro-stage');
+        const floatingNav = document.getElementById('floating-nav');
+
+        // Continuous smooth lerp loop for scroll & mouse reactivity
+        let currentScrollY = window.scrollY;
+        let targetScrollY = window.scrollY;
+        let mouseX = 0, mouseY = 0;
+        let targetMouseX = 0, targetMouseY = 0;
+
+        // Mouse & screen movement tracking
+        window.addEventListener('mousemove', function (e) {
+          targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+          targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        }, { passive: true });
+
+        // Touch screen movement
+        window.addEventListener('touchmove', function (e) {
+          if (e.touches && e.touches[0]) {
+            targetMouseX = (e.touches[0].clientX / window.innerWidth - 0.5) * 2;
+            targetMouseY = (e.touches[0].clientY / window.innerHeight - 0.5) * 2;
+          }
+        }, { passive: true });
+
+        // Device orientation tilt for mobile if supported
+        if (window.DeviceOrientationEvent) {
+          window.addEventListener('deviceorientation', function (e) {
+            if (e.gamma !== null && e.beta !== null) {
+              targetMouseX = Math.min(1, Math.max(-1, e.gamma / 30));
+              targetMouseY = Math.min(1, Math.max(-1, (e.beta - 45) / 30));
+            }
+          }, { passive: true });
+        }
+
+        function renderLoop() {
+          targetScrollY = window.scrollY;
+          // Dampened smooth lerp (0.10 for scroll, 0.05 for mouse)
+          currentScrollY += (targetScrollY - currentScrollY) * 0.10;
+          mouseX += (targetMouseX - mouseX) * 0.05;
+          mouseY += (targetMouseY - mouseY) * 0.05;
+
+          const vh = window.innerHeight;
+
+          // 1. Smooth Head-to-Shoulders Camera Pan:
+          // Over the first 1.6 viewports, camera descends from full head down to shoulders & torso
+          const panProgress = Math.min(1, Math.max(0, currentScrollY / (vh * 1.6)));
+          // Smooth quadratic ease-in-out
+          const easePan = panProgress < 0.5
+            ? 2 * panProgress * panProgress
+            : -1 + (4 - 2 * panProgress) * panProgress;
+
+          // Pan DOWN: image slides upward, revealing shoulders. maxPanY = 22% vh.
+          const maxPanY = vh * 0.22;
+          const scrollPanY = easePan * maxPanY;   // positive = image slides up = shoulders revealed
+
+          // Subtle scale push-in (1.00 -> 1.04)
+          const scale = 1.0 + easePan * 0.04;
+
+          // 3D Screen Movement / Mouse Parallax
+          const mouseShiftX = mouseX * 18; // +/- 18px
+          const mouseShiftY = mouseY * 10; // +/- 10px
+          const tiltX = -mouseY * 1.8;     // degrees
+          const tiltY = mouseX * 2.0;      // degrees
+
+          const totalX = mouseShiftX;
+          const totalY = -scrollPanY + mouseShiftY;   // negative = image moves up
+
+          bgPhotoWrapper.style.transform = `translate3d(${totalX.toFixed(2)}px, ${totalY.toFixed(2)}px, 0) scale(${scale.toFixed(3)}) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
+
+          // Opacity: high visibility on reveal, gentle dimming on deep scroll for text clarity
+          const isDeepScroll = currentScrollY > vh * 1.4;
+          const deepScrollProgress = Math.min(1, Math.max(0, (currentScrollY - vh * 1.4) / vh));
+          const baseOpacity = 0.90 + panProgress * 0.08;
+          const imageOpacity = baseOpacity - deepScrollProgress * 0.40;
+          bgPhotoInner.style.opacity = Math.max(0.48, imageOpacity);
+          deepScrollOverlay.style.opacity = deepScrollProgress;
+
+          // 2. Welcome Stage Fade Out
+          const welcomeOpacity = Math.max(0, 1 - currentScrollY / 300);
+          welcomeStage.style.opacity = welcomeOpacity;
+          welcomeStage.style.transform = `translateY(-${currentScrollY * 0.4}px)`;
+          welcomeStage.style.display = welcomeOpacity <= 0 ? 'none' : 'flex';
+
+          // 3. Intro Stage Fade & Slide In
+          const introProgress = Math.min(1, Math.max(0, (currentScrollY - 200) / 450));
+          introStage.style.opacity = introProgress;
+          introStage.style.transform = `translateY(${(1 - introProgress) * 40}px)`;
+
+          // 4. Floating Nav Opacity
+          if (currentScrollY > 150) {
+            floatingNav.classList.remove('opacity-80', '-translate-y-1');
+            floatingNav.classList.add('opacity-100', 'translate-y-0');
+          } else {
+            floatingNav.classList.add('opacity-80', '-translate-y-1');
+            floatingNav.classList.remove('opacity-100', 'translate-y-0');
+          }
+
+          requestAnimationFrame(renderLoop);
+        }
+
+        requestAnimationFrame(renderLoop);
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileToggle.addEventListener('click', function () {
+          const isOpen = !mobileMenu.classList.contains('hidden');
+          if (isOpen) {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          } else {
+            mobileMenu.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          });
+        });
+
+        // Skill Tabs Filter
+        const skillButtons = document.querySelectorAll('.skill-tab');
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        skillButtons.forEach(btn => {
+          btn.addEventListener('click', function () {
+            const cat = this.getAttribute('data-cat');
+            skillButtons.forEach(b => {
+              b.classList.remove('bg-[#f97316]', 'text-black', 'font-semibold');
+              b.classList.add('bg-white/[0.03]', 'text-[#8c8c8c]', 'border', 'border-white/[0.08]');
+            });
+            this.classList.add('bg-[#f97316]', 'text-black', 'font-semibold');
+            this.classList.remove('bg-white/[0.03]', 'text-[#8c8c8c]', 'border', 'border-white/[0.08]');
+
+            skillCards.forEach(card => {
+              if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        // Email Copy Button
+        const copyBtn = document.getElementById('copy-email-btn');
+        const copyIcon = document.getElementById('copy-icon');
+        const checkIcon = document.getElementById('check-icon');
+        const copyText = document.getElementById('copy-text');
+        const email = 'adithya2162008@gmail.com';
+
+        copyBtn.addEventListener('click', function () {
+          navigator.clipboard.writeText(email).then(() => {
+            copyIcon.classList.add('hidden');
+            checkIcon.classList.remove('hidden');
+            copyText.innerText = 'COPIED TO CLIPBOARD';
+            setTimeout(() => {
+              copyIcon.classList.remove('hidden');
+              checkIcon.classList.add('hidden');
+              copyText.innerText = 'COPY EMAIL';
+            }, 2000);
+          });
+        });
+
+      })();
+  </script>
+</body>
+
+</html>
